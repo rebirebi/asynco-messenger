@@ -14,10 +14,17 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should expose the correct title signal', () => {
+    const fixture = TestBed.createComponent(App);
+    const app = fixture.componentInstance;
+    // the title is a signal defined on the component
+    expect(app.title()).toBe('asynco-messenger');
+  });
+
+  it('should render the router outlet', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, asynco-messenger');
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });
