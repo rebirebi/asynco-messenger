@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewChild, ElementRef, effect, ChangeDetectionStrategy } from '@angular/core';
+import { Component, computed, inject, signal, ViewChild, ElementRef, effect, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SocketService } from '../../../../app/core/services/socket.service';
@@ -24,8 +24,8 @@ export class ChatComponent {
   // Expose messages from the service
   public messages = this.socketService.messages;
   
-  // Connection status signal (mirrors SocketService.connected)
-  isConnected = this.socketService.connected;
+  // Computed property to check connection status
+  isConnected = computed(() => this.socketService.isConnected());
   
   // Current user
   currentUser = signal('Me');
