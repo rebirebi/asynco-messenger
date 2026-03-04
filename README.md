@@ -1,5 +1,7 @@
 # AsyncoMessenger
 
+**AsyncoMessenger** is a sleek, enterprise‑grade chat client built with modern Angular (v21) and Node.js. It delivers instant, bi‑directional messaging over WebSockets with a responsive dark‑themed interface, optimistic UI updates, and a lightweight signal‑based state layer. Whether you're prototyping real‑time collaboration or building the next messaging platform, this repository demonstrates best practices for standalone components, signal-driven state, and Socket.IO integration.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
 
 ## Development server

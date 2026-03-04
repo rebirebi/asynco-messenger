@@ -1,0 +1,104 @@
+$colors: (
+	'bg-primary': #1e1e1e,
+	'bg-secondary': #2d2d2d,
+	'bg-tertiary': #3a3a3a,
+	'text-primary': #e0e0e0,
+	'text-secondary': #b0b0b0,
+	'border': #404040,
+	'accent-blue': #0ea5e9,
+	'accent-blue-hover': #0284c7
+);
+
+@function color($key) {
+	@return map-get($colors, $key);
+}
+
+@function spacing($n) {
+	@if $n == sm { @return 8px; }
+	@if $n == md { @return 12px; }
+	@if $n == lg { @return 16px; }
+	@return 12px;
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-overlay {
+	position: fixed;
+	inset: 0;
+	@include flex-center;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 1000;
+}
+
+.login-card {
+	background: color('bg-secondary');
+	color: color('text-primary');
+	padding: 24px;
+	border-radius: 12px;
+	width: min(480px, 92%);
+	box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+	border: 1px solid color('border');
+	display: flex;
+    flex-direction: column;
+	gap: spacing(md);
+    font-family: Arial, sans-serif;
+
+    h2 {
+        margin: 0 0 4px 0;
+    }
+
+    p {
+        margin: 0 0 8px 0;
+        color: color('text-secondary');
+    }
+    .join-chat-container {
+        display: flex;
+    }
+
+    .message-input {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 10px 0 0 10px;
+        background-color: color('bg-tertiary');
+        border: 1px solid color('border');
+        color: color('text-primary');
+        font-size: 1rem;
+
+        &::placeholder {
+            color: color('text-secondary');
+        }
+    }
+
+    .join-button {
+        font-size: 1rem;
+        min-width: 130px;
+        align-self: center;
+        padding: 12px 14px;
+        background-color: color('accent-blue');
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-left: 2px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .join-button:disabled {
+        background-color: color('bg-tertiary');
+        color: color('text-secondary');
+        cursor: not-allowed;
+    }
+
+    .join-button:not(:disabled):hover {
+        background-color: color('accent-blue-hover');
+        transform: translateY(-1px);
+    }
+}
+@media (max-width: 420px) {
+	.login-card { padding: 16px; }
+	.login-card .message-input { font-size: 0.95rem; }
+}
+

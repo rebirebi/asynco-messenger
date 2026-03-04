@@ -5,17 +5,23 @@ import { UserStore } from './core/services/user.store';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.html',
+  // templateUrl: './app.html',
   imports: [RouterOutlet],
   styleUrl: './app.scss',
   template:`
-    @if (!userStore.currentUser()) {
+    @if (!userStore._currentUser()) {
       <div class="login-overlay">
-        <input #nameInput type="text" placeholder="Enter your name...">
-        <button (click)="userStore.setUser(nameInput.value)">Join Chat</button>
+        <div class="login-card">
+          <h2>Welcome</h2>
+          <p>Enter your display name to join the chat.</p>
+          <div class="join-chat-container">
+            <input class="message-input" #nameInput type="text" placeholder="Enter your name...">
+            <button class="join-button" (click)="userStore.setUser(nameInput.value)">Join Chat</button>
+          </div>
+        </div>
       </div>
     } @else {
-      <div class="chat-container">
+      <div class="chat-container"><router-outlet />
         </div>
     }
   `
