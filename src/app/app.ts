@@ -20,7 +20,7 @@ import { UserStore } from './core/services/user.store';
           </div>
         </div>
       </div>
-    } @else {
+    } @else {                                                     
       <div class="chat-container"><router-outlet />
         </div>
     }
