@@ -13,7 +13,7 @@ To start a local development server, run:
 ng start dev:all
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:42`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
 
@@ -47,16 +47,11 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
+<img width="1360" height="654" alt="image" src="https://github.com/user-attachments/assets/1fefef99-7fd9-4696-b91d-fcce29102d40" />
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<img width="1366" height="737" alt="image" src="https://github.com/user-attachments/assets/fc662348-b3d1-4747-88e6-69bcc5697502" />
+
