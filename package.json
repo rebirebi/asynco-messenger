@@ -6,7 +6,8 @@
     "ng": "ng",
     "start:all": "concurrently \"npm run start\" \"ng serve\"",
     "start": "ts-node --esm server/index.ts",
-    "dev": "ts-node-dev --respawn --esm server/index.ts"
+    "dev": "ts-node-dev --respawn --esm server/index.ts",
+    "build": "ng build"
   },
   "prettier": {
     "printWidth": 100,
