@@ -4,13 +4,14 @@ import { io, Socket } from 'socket.io-client';
 import { Message } from '../models/message.model';
 import { generateUUID } from '../utils/uuid';
 import { UserStore } from './user.store';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
   private socket: Socket | null = null;
-  private readonly SERVER_URL = 'http://localhost:3000';
+  private readonly SERVER_URL = environment.apiUrl;
   protected userStore = inject(UserStore);
   // Signal to store received messages
   public messages = signal<Message[]>([]);
@@ -27,7 +28,8 @@ export class SocketService {
       reconnection: true,
       reconnectionDelay: 1000,
       reconnectionDelayMax: 5000,
-      reconnectionAttempts: 5
+      reconnectionAttempts: 5,
+      transports: ['websocket'],// Use WebSocket transport for better performance
     });
 
     this.setupListeners();

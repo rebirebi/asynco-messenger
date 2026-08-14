@@ -17,7 +17,7 @@
     @for (message of messages(); track message.id) {
       <div class="message {{message.status}}" [class.own-message]="message.sender === 'Me'">
         <div class="message-bubble">
-          <p class="message-text">{{ message.text }}</p>
+          <p appHighlight highlightColor="lightblue" class="message-text">{{ message.text | truncate:25:'...' }}</p>
           <div class="message-meta">
             <span class="message-time">{{ formatTime(message.timestamp) }}</span>
             <span [class]="'status-icon ' + getStatusClass(message.status)">

@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { SocketService } from '../../../../app/core/services/socket.service';
 import { Message } from '../../../core/models/message.model';
 import { generateUUID } from '../../../core/utils/uuid';
+import { Highlight } from '../directives/highlight';
+import { TruncatePipe } from '../pipes/truncate-pipe';
 
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Highlight, TruncatePipe],
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,7 +23,7 @@ export class ChatComponent {
   // Input state
   messageText = signal('');
   
-  // Expose messages from the service
+  // messages from the service
   public messages = this.socketService.messages;
   
   // Computed property to check connection status
